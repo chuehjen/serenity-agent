@@ -31,11 +31,17 @@ Search the web (use WebSearch) for these queries:
 4. `"CHIPS Act export controls semiconductor tariffs AI data center power"`
 5. `"semiconductor supply chain bottleneck shortage 2026"`
 
-Fetch prices for the **watchlist** (see `references/supply-chain-map.md` for the full universe):
-- Core: SIVE, AAOI, AXTI, LITE, MRVL, XFAB, SOI, TSEM, COHR, GLW
-- Adjacent: MU, NVTS, WOLF, AEHR, NBIS, RPI
-- Energy: LNG, CVX, CEG, VRT
-- Crypto: ETH (if the user's competition allows)
+**Fetch stock prices** using this fallback chain (try each until success):
+1. Alpha Vantage API (free, 5 req/min): `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=TICKER&apikey=demo`
+2. Google Finance: `https://www.google.com/finance/quote/TICKER:EXCHANGE`
+3. Yahoo Finance: `https://finance.yahoo.com/quote/TICKER/` (may return 403)
+4. Search snippet fallback: WebSearch `"TICKER stock price today"` — use the snippet price, label as `[estimated]`
+
+**Price conflict detection:** If you find prices from 2+ sources and they differ by >15%, flag as `[DATA CONFLICT]` and list all sources with timestamps. Default to the most recent source.
+
+**Multi-currency handling:** For non-USD tickers (SIVE=SEK, SOI=EUR, XFAB=EUR), include the FX rate and note the currency. Convert to USD for portfolio calculations.
+
+**Ticker validation:** If a ticker returns no results or maps to a different company than expected, flag it as `[TICKER UNCONFIRMED]` and skip. Do not silently drop it.
 
 Also check [semiconstocks.com](https://semiconstocks.com) for the third-party Serenity tracker.
 
@@ -111,13 +117,18 @@ For every top candidate, apply four-tier evidence grading:
 | Single-stock max | 30% |
 | Max holdings | 5-10 stocks |
 | Leverage | None. Long only. No shorts. |
-| Cash | 0-20% allowed |
+| Cash | **Dynamic**: min 0% if all positions are large-cap & low volatility; min 10-15% if any position is small-cap, high-volatility (>50% 30d vol), or illiquid |
 
 **Position sizing by score + conviction:**
 - Score 85+ & catalyst within 1-2 quarters → 20-30%
 - Score 70-84 & thesis intact, awaiting verification → 10-15%
 - Score 55-69 & upstream bottleneck identified → 5-8%
 - Score <55 → do not hold; monitor only
+
+**Actionability check:** Before including a position, verify the user can actually buy it:
+- US-listed tickers: directly purchasable via most brokers
+- Foreign-listed (SIVE=Stockholm, SOI=Euronext): note if ADR exists; if not, flag as `[需要跨境交易]` and suggest IBKR/Futu Global or similar
+- If no practical way to buy, exclude and note why
 
 ### Step F: Output
 
@@ -132,13 +143,17 @@ For every top candidate, apply four-tier evidence grading:
 |--------|------|------|------|------|------|------|------|
 
 ### 组合决策
-| Ticker | 操作 | 目标仓位% | 目标金额$ | 信心 | 理由（一句话卡点逻辑） |
-|--------|------|-----------|-----------|------|----------------------|
+| Ticker | 操作 | 目标仓位% | 目标金额$ | 信心 | 买入方式 | 理由（一句话卡点逻辑） |
+|--------|------|-----------|-----------|------|---------|----------------------|
 
 ### 组合总览
 - 持仓: [ticker1 XX%, ticker2 XX%, ...]
-- 现金: XX%
+- 现金: XX% (动态最低现金: XX%, 基于组合波动率)
 - 日调仓原因: [one sentence]
+
+### 参考股价
+| Ticker | 价格 | 货币 | 来源 |
+|--------|------|------|------|
 
 ### 催化剂日历
 | 日期（预估） | 事件 | 影响标的 |
@@ -146,6 +161,9 @@ For every top candidate, apply four-tier evidence grading:
 
 ### 风险标注
 [Top risk + concentration risk + dilution alerts + NINGI/short-report status if applicable]
+
+### 未配标的简评
+[For tickers that were considered but excluded, 2-3 sentences each explaining why]
 
 ---
 仅作信息跟踪，不构成投资建议。
