@@ -50,6 +50,29 @@ Plain-language definitions for recurring domain jargon. Define a term on first u
 - **FUD (Fear, Uncertainty, Doubt)** — negative narrative spreading panic; sentiment, not analysis.
 - **OSINT (Open Source Intelligence)** — using public information (filings, transcripts, customer websites) to map supply-chain reality.
 
+## Supply Chain & Infrastructure
+
+- **CoWoS (Chip-on-Wafer-on-Substrate)** — TSMC's advanced packaging technology; the single biggest bottleneck in AI chip production.
+- **HBM (High Bandwidth Memory)** — stacked DRAM for AI accelerators; only 3 global suppliers (SK Hynix, Samsung, Micron).
+- **ABF substrate** — Ajinomoto Build-up Film substrate; critical material for advanced packaging (Unimicron, Ibiden).
+- **EUV (Extreme Ultraviolet Lithography)** — ASML's monopoly technology for cutting-edge chip manufacturing.
+- **InP (Indium Phosphide)** — compound semiconductor substrate material for optical devices; AXT Inc controls ~40-60% of global supply.
+- **SiC (Silicon Carbide)** — wide-bandgap material for high-voltage power devices.
+- **GaN (Gallium Nitride)** — wide-bandgap material for high-efficiency power conversion.
+
+## Scoring & Evidence
+
+- **Chokepoint Scorecard** — 8 positive factors + 8 penalty factors, quantitative scoring system (0-100 scale).
+- **Evidence Ladder** — four-tier grading: Strong (filings/transcripts) → Medium (media/industry) → Weak (social/KOL) → Needs checking.
+- **Red flag signals** — receivables/inventory growing faster than revenue, single unnamed customer rumors, stock primarily driven by social media.
+
+## Controversy Terms
+
+- **NINGI Research** — short-seller that published a report on $SIVE in June 2026 alleging artificial revenue.
+- **Pump-and-dump** — buying a stock, promoting it to a large audience, then selling into the price surge. Allegation against Serenity-style social media stock promotion.
+- **13F** — SEC filing required for institutional managers with >$100M AUM. Serenity is a retail investor, exempt from this disclosure.
+- **Market impact** — the phenomenon where a large social media following can move small-cap stock prices just by posting about them.
+
 ## Classification labels (method-specific)
 
 - **研究地图 (research map)** — a lead worth tracking; the default conclusion.

@@ -1,4 +1,4 @@
-# Serenity Agent
+# Serenity Agent v2
 
 > A QoderWork / AI agent skill that distills Serenity (@aleabitoreddit)'s supply-chain bottleneck investment methodology into a reusable, automated portfolio decision engine.
 
@@ -11,25 +11,33 @@
 
 ### What this is
 
-Serenity Agent is a skill that turns Serenity's "Critical Chokepoint" investment methodology into an automated daily workflow:
+Serenity Agent v2 is a skill that turns Serenity's "Critical Chokepoint" investment methodology into an automated daily workflow with quantitative scoring:
 
 1. **Searches** the latest AI semiconductor / photonics / supply-chain news
-2. **Analyzes** candidates using the five-step method (chokepoint discovery → first principles → selection signature → rotation logic → narrative hygiene)
-3. **Outputs** a structured portfolio decision with position sizing, catalyst calendar, and risk annotations
+2. **Maps** the 10-layer AI supply chain to identify bottleneck layers
+3. **Scores** candidates with an 8-factor chokepoint scorecard (with 8 penalty factors)
+4. **Outputs** a structured portfolio decision with quantitative ratings, catalyst calendar, and risk annotations
 
 ### The Methodology
 
-Serenity's edge: find the bottleneck in the AI supply chain that the market under-prices, reason from first principles, gate through Buffett-style quality questions, and separate narrative from fundamentals.
+Serenity's edge: find the bottleneck in the AI supply chain that the market under-prices, reason from first principles, score quantitatively, gate through Buffett-style quality questions, and separate narrative from fundamentals.
 
-**Five-step method:**
+**Nine-step research workflow:**
 
 | Step | What it does |
 |------|-------------|
-| 1. Critical chokepoint | Walk the value chain from macro driver to the link where supply can't keep up with demand |
-| 2. First principles | Decompose into: demand durability, supply bottleneck, pricing power, capital intensity, geopolitics |
-| 3. Selection signature | Small/mid-cap, designed-in, contrarian, dated catalyst |
-| 4. Rotation logic | Move UP the supply chain, EARLIER in the cycle, SMALLER/less-covered |
-| 5. Narrative hygiene | Quarantine price action, media FUD, and capital flows from quality judgments |
+| 1. Set scope | Market, theme, time window |
+| 2. System change | Translate narrative into physical constraint |
+| 3. Map value chain | 10 layers from raw materials to cloud |
+| 4. Find scarce layer | Low suppliers, long qualification, hard expansion |
+| 5. Build universe | 20+ candidates, classify by chain position |
+| 6. Grade evidence | 4-tier ladder: Strong → Medium → Weak → Needs checking |
+| 7. Score & rank | 8 positive factors + 8 penalty factors (0-100) |
+| 8. Failure conditions | Substitution, dilution, geopolitics, hype |
+| 9. Next research move | Specific filings, metrics, events to watch |
+
+**Three investment phases:**
+- Phase 1: Memory (done) → Phase 2: Optical (active) → Phase 3: Silicon Photonics/CPO (emerging)
 
 ### Install
 
@@ -84,17 +92,22 @@ Set up a cron/scheduled task to run this skill daily before market close:
 
 ```
 serenity-agent/
-├── SKILL.md              # Main skill instructions
+├── SKILL.md                    # Core instructions (9-step workflow + scorecard + modes)
 └── references/
-    ├── framework.md      # Full analytical rubric (5 levers, Buffett gate, OSINT heuristics)
-    ├── glossary.md       # Jargon definitions (CPO, photonics, financial terms)
-    └── exemplars.md      # Worked examples (SIVE, XFAB, SOI, AAOI, Shunsin)
+    ├── framework.md            # Full analytical rubric + 3-phase cycle
+    ├── scoring-system.md       # 8+8 quantitative scorecard with examples
+    ├── supply-chain-map.md     # 10-layer AI supply chain + 38 tickers + concentration data
+    ├── market-sources.md       # Cross-market data sources (US/A/HK/TW/JP/KR/EU)
+    ├── controversies.md        # NINGI report, track record verification, pump-and-dump
+    ├── glossary.md             # Jargon definitions (CPO, photonics, financial terms)
+    └── exemplars.md            # Worked examples (SIVE, XFAB, SOI, AAOI, Shunsin)
 ```
 
 ### Acknowledgments
 
 - Methodology from [@aleabitoreddit](https://x.com/aleabitoreddit) ("Serenity")'s public archive
-- Inspired by [lanfuli/aleabito-serenity-skills](https://github.com/lanfuli/aleabito-serenity-skills) (MIT)
+- Inspired by [lanfuli/aleabito-serenity-skills](https://github.com/lanfuli/aleabito-serenity-skills) and [muxuuu/serenity-skill](https://github.com/muxuuu/serenity-skill) (MIT)
+- Supply chain data from [Epoch AI](https://epoch.ai/data/ai-chip-components) and [semiconstocks.com](https://semiconstocks.com)
 - Not affiliated with Serenity
 
 ### Disclaimer
@@ -112,11 +125,12 @@ For information tracking and research only. Not investment advice. Do your own d
 
 ### 这是什么
 
-Serenity Agent 是一个 AI 技能，把 Serenity（@aleabitoreddit）的"关键卡点"投资方法论变成一个自动化每日工作流：
+Serenity Agent v2 是一个 AI 技能，把 Serenity（@aleabitoreddit）的"关键卡点"投资方法论变成一个自动化每日工作流，含量化评分系统：
 
 1. **搜索** 最新 AI 半导体/光子学/供应链新闻
-2. **分析** 候选标的（五步法：卡点发现 → 第一性原理 → 选股签名 → 轮动逻辑 → 叙事卫生）
-3. **输出** 结构化持仓决策（仓位、催化剂日历、风险标注）
+2. **映射** 10 层 AI 供应链，识别瓶颈层
+3. **评分** 候选标的（8 正向因子 + 8 惩罚因子，0-100 分）
+4. **输出** 结构化持仓决策（量化评分、催化剂日历、风险标注）
 
 ### 安装
 
