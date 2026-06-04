@@ -1,3 +1,10 @@
+> ⚠️ **This repo has moved.** Serenity is now one guru inside the unified **[Quant Guru Desk](https://github.com/chuehjen/quant-guru-desk)** — a desk of investing-guru agents you can summon individually or together. This standalone repo is archived and no longer maintained. Please use:
+> ```bash
+> git clone https://github.com/chuehjen/quant-guru-desk ~/.qoderwork/skills/quant-guru-desk
+> ```
+
+---
+
 # Serenity Agent v2
 
 > A QoderWork / AI agent skill that distills Serenity (@aleabitoreddit)'s supply-chain bottleneck investment methodology into a reusable, automated portfolio decision engine.
